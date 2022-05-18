@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>Doc</title>
+	</head>
+<body>
+<div>
+<h1>XML DATA</h1>
+<b>firstname:</b><span id="firstname"></span></br>
+<b>lastname:</b><span id="lastname"></span></br>
+<b>contact:</b><span id="contact"></span></br>
+<b>address:</b><span id="address"></span></br>
+
+</body>
+</html>
+<script type="text/javascript">
+	if (window.XMLHttpRequest)
+	{
+		xmlhttp=new XMLHttpRequest();
+	}
+	else
+	{
+		xmlhttp=new Activexobject("Microsoft.XMLHTTP");
+	}
+	xmlhttp.open("GET","index.xml",false);
+	xmlhttp.send();
+	xmlDoc=xmlhttp.responseXML;
+	document.getElementById('firstname').innerHTML=xmlDoc.getElementsByTagName("firstname")[0].childNodes[0].nodevalue;
+	document.getElementById("lastname").innerHTML=xmlDoc.getElementsByTagName('lastname')[0].childNodes[0].nodevalue;
+
+document.getElementById("email").innerHTML=xmlDoc.getElementsByTagName('email')[0].childNodes[0].nodevalue;
+document.getElementById("contact").innerHTML=xmlDoc.getElementsByTagName('contact')[0].childNodes[0].nodevalue;
+document.getElementById("address").innerHTML=xmlDoc.getElementsByTagName('address')[0].childNodes[0].nodevalue;
+
+</script>
+
